@@ -5,6 +5,8 @@
  */
 package logica;
 
+import java.util.Date;
+
 /**
  *
  * @author alumnop
@@ -87,6 +89,11 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
 
         jButton3.setText("jButton3");
         jButton3.setMaximumSize(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("jButton4");
         jButton4.setMaximumSize(null);
@@ -197,6 +204,21 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
     private void jTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDireccionActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        String nombre, apellidos, dni, direccion;
+        Date fecha;
+        int telefono;
+        nombre = jTextFieldNombre.getText();
+        apellidos = jTextFieldApellidos.getText();
+        dni = jTextFieldDni.getText();
+        direccion = jTextFieldDireccion.getText();
+        fecha =  (Date) jSpinnerFechaNacimiento.getValue();
+        telefono = (int) jTextFieldTelefono.getText();
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
