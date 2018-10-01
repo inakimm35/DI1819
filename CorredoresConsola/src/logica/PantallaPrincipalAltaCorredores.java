@@ -50,8 +50,8 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
         jTextFieldTelefono = new javax.swing.JTextField();
         jSpinnerFechaNacimiento = new javax.swing.JSpinner();
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonAnadir = new javax.swing.JButton();
+        jButtonLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(650, 500));
@@ -95,19 +95,19 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
 
         jSpinnerFechaNacimiento.setModel(new javax.swing.SpinnerDateModel());
 
-        jButton3.setText("Añadir");
-        jButton3.setActionCommand("jButtonAnadir");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAnadir.setText("Añadir");
+        jButtonAnadir.setActionCommand("jButtonAnadir");
+        jButtonAnadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonAnadirActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Limpiar");
-        jButton4.setActionCommand("jButtonLimpiar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimpiar.setText("Limpiar");
+        jButtonLimpiar.setActionCommand("jButtonLimpiar");
+        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonLimpiarActionPerformed(evt);
             }
         });
 
@@ -117,9 +117,9 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(175, 175, 175)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(85, 85, 85)
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(189, 189, 189))
         );
         jPanel1Layout.setVerticalGroup(
@@ -127,8 +127,8 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonAnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(61, 61, 61))
         );
 
@@ -218,7 +218,7 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDireccionActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirActionPerformed
 
         String nombre, apellidos, dni, direccion,  telefonoString;
         Date fecha;
@@ -236,9 +236,9 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
         System.out.println(listaCorredores.toString());
         
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonAnadirActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
 
      jTextFieldApellidos.setText("");
      jTextFieldDireccion.setText("");
@@ -246,7 +246,7 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
      jTextFieldNombre.setText("");
      jTextFieldTelefono.setText("");   
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,8 +284,8 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAnadir;
+    private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JLabel jLabelApellidos;
     private javax.swing.JLabel jLabelDNI;
     private javax.swing.JLabel jLabelDireccion;
