@@ -5,7 +5,9 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
+import modelo.Corredor;
 
 /**
  *
@@ -16,8 +18,14 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
     /**
      * Creates new form PantallaPrincipalAltaCorredores
      */
+    
+    ArrayList<Corredor> listaCorredores = new ArrayList<>();
+    
     public PantallaPrincipalAltaCorredores() {
+        
         initComponents();
+       
+        
     }
 
     /**
@@ -46,7 +54,7 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(650, 460));
+        setMinimumSize(new java.awt.Dimension(650, 500));
         setPreferredSize(new java.awt.Dimension(650, 460));
 
         jLabelNombre.setText("Nombre:");
@@ -87,16 +95,21 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
 
         jSpinnerFechaNacimiento.setModel(new javax.swing.SpinnerDateModel());
 
-        jButton3.setText("jButton3");
-        jButton3.setMaximumSize(null);
+        jButton3.setText("Añadir");
+        jButton3.setActionCommand("jButtonAnadir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("jButton4");
-        jButton4.setMaximumSize(null);
+        jButton4.setText("Limpiar");
+        jButton4.setActionCommand("jButtonLimpiar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -207,7 +220,7 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        String nombre, apellidos, dni, direccion;
+        String nombre, apellidos, dni, direccion,  telefonoString;
         Date fecha;
         int telefono;
         nombre = jTextFieldNombre.getText();
@@ -215,10 +228,25 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
         dni = jTextFieldDni.getText();
         direccion = jTextFieldDireccion.getText();
         fecha =  (Date) jSpinnerFechaNacimiento.getValue();
-        telefono = (int) jTextFieldTelefono.getText();
+        telefonoString = jTextFieldTelefono.getText();
+        telefono = Integer.parseInt(telefonoString);
+        
+        Corredor c1 = new Corredor(dni,nombre,apellidos,fecha,direccion,telefono);
+        listaCorredores.add(c1);
+        System.out.println(listaCorredores.toString());
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+     jTextFieldApellidos.setText("");
+     jTextFieldDireccion.setText("");
+     jTextFieldDni.setText("");
+     jTextFieldNombre.setText("");
+     jTextFieldTelefono.setText("");   
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
