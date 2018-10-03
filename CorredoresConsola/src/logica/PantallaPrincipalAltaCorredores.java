@@ -6,7 +6,10 @@
 package logica;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.ListModel;
 import modelo.Corredor;
 
 /**
@@ -15,16 +18,18 @@ import modelo.Corredor;
  */
 public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
 
+   private ArrayList<Corredor> listaCorredores = new ArrayList<Corredor>();
+    
+    
     /**
      * Creates new form PantallaPrincipalAltaCorredores
+     * 
      */
-    
-    ArrayList<Corredor> listaCorredores = new ArrayList<>();
-    
     public PantallaPrincipalAltaCorredores() {
-        
         initComponents();
-       
+        
+        
+      ;
         
     }
 
@@ -37,216 +42,59 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelNombre = new javax.swing.JLabel();
-        jLabelApellidos = new javax.swing.JLabel();
-        jLabelDNI = new javax.swing.JLabel();
-        jLabelFechaNacimiento = new javax.swing.JLabel();
-        jLabelDireccion = new javax.swing.JLabel();
-        jLabelTelefono = new javax.swing.JLabel();
-        jTextFieldNombre = new javax.swing.JTextField();
-        jTextFieldApellidos = new javax.swing.JTextField();
-        jTextFieldDni = new javax.swing.JTextField();
-        jTextFieldDireccion = new javax.swing.JTextField();
-        jTextFieldTelefono = new javax.swing.JTextField();
-        jSpinnerFechaNacimiento = new javax.swing.JSpinner();
-        jPanel1 = new javax.swing.JPanel();
-        jButtonAnadir = new javax.swing.JButton();
-        jButtonLimpiar = new javax.swing.JButton();
+        BotonAnadirMain = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(650, 500));
+        setMinimumSize(new java.awt.Dimension(650, 460));
         setPreferredSize(new java.awt.Dimension(650, 460));
 
-        jLabelNombre.setText("Nombre:");
-
-        jLabelApellidos.setText("Apellidos:");
-
-        jLabelDNI.setText("DNI:");
-
-        jLabelFechaNacimiento.setText("Fecha Nacimiento:");
-
-        jLabelDireccion.setText("Dirección:");
-
-        jLabelTelefono.setText("Teléfono:");
-
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+        BotonAnadirMain.setText("Añadir");
+        BotonAnadirMain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
+                BotonAnadirMainActionPerformed(evt);
             }
         });
 
-        jTextFieldApellidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldApellidosActionPerformed(evt);
-            }
-        });
-
-        jTextFieldDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDniActionPerformed(evt);
-            }
-        });
-
-        jTextFieldDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDireccionActionPerformed(evt);
-            }
-        });
-
-        jSpinnerFechaNacimiento.setModel(new javax.swing.SpinnerDateModel());
-
-        jButtonAnadir.setText("Añadir");
-        jButtonAnadir.setActionCommand("jButtonAnadir");
-        jButtonAnadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAnadirActionPerformed(evt);
-            }
-        });
-
-        jButtonLimpiar.setText("Limpiar");
-        jButtonLimpiar.setActionCommand("jButtonLimpiar");
-        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLimpiarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(jButtonAnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(85, 85, 85)
-                .addComponent(jButtonLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(189, 189, 189))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAnadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(61, 61, 61))
-        );
+        jScrollPane2.setViewportView(jList2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelTelefono)
-                    .addComponent(jLabelDireccion)
-                    .addComponent(jLabelFechaNacimiento)
-                    .addComponent(jLabelDNI)
-                    .addComponent(jLabelApellidos)
-                    .addComponent(jLabelNombre))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldApellidos)
-                        .addGap(169, 169, 169))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNombre)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinnerFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(242, 242, 242))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextFieldDireccion)
-                        .addGap(30, 30, 30))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonAnadirMain, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(264, 264, 264))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(194, 194, 194)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelApellidos)
-                    .addComponent(jTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDNI)
-                    .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelFechaNacimiento)
-                    .addComponent(jSpinnerFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDireccion)
-                    .addComponent(jTextFieldDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTelefono)
-                    .addComponent(jTextFieldTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addComponent(BotonAnadirMain, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
-
-    private void jTextFieldApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldApellidosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldApellidosActionPerformed
-
-    private void jTextFieldDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDniActionPerformed
-
-    private void jTextFieldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDireccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDireccionActionPerformed
-
-    private void jButtonAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirActionPerformed
-
-        String nombre, apellidos, dni, direccion,  telefonoString;
-        Date fecha;
-        int telefono;
-        nombre = jTextFieldNombre.getText();
-        apellidos = jTextFieldApellidos.getText();
-        dni = jTextFieldDni.getText();
-        direccion = jTextFieldDireccion.getText();
-        fecha =  (Date) jSpinnerFechaNacimiento.getValue();
-        telefonoString = jTextFieldTelefono.getText();
-        telefono = Integer.parseInt(telefonoString);
+    private void BotonAnadirMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnadirMainActionPerformed
+        AltaCorredores altaC = new AltaCorredores(this,true, listaCorredores);
+        altaC.setVisible(true);
         
-        Corredor c1 = new Corredor(dni,nombre,apellidos,fecha,direccion,telefono);
-        listaCorredores.add(c1);
-        System.out.println(listaCorredores.toString());
+        DefaultListModel dlm = new DefaultListModel();
+        for(Corredor c : listaCorredores)
+            dlm.addElement(c);
+        jList2.getModel();
         
-        
-    }//GEN-LAST:event_jButtonAnadirActionPerformed
-
-    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
-
-     jTextFieldApellidos.setText("");
-     jTextFieldDireccion.setText("");
-     jTextFieldDni.setText("");
-     jTextFieldNombre.setText("");
-     jTextFieldTelefono.setText("");   
-        
-    }//GEN-LAST:event_jButtonLimpiarActionPerformed
+    }//GEN-LAST:event_BotonAnadirMainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,20 +132,8 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAnadir;
-    private javax.swing.JButton jButtonLimpiar;
-    private javax.swing.JLabel jLabelApellidos;
-    private javax.swing.JLabel jLabelDNI;
-    private javax.swing.JLabel jLabelDireccion;
-    private javax.swing.JLabel jLabelFechaNacimiento;
-    private javax.swing.JLabel jLabelNombre;
-    private javax.swing.JLabel jLabelTelefono;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinnerFechaNacimiento;
-    private javax.swing.JTextField jTextFieldApellidos;
-    private javax.swing.JTextField jTextFieldDireccion;
-    private javax.swing.JTextField jTextFieldDni;
-    private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldTelefono;
+    private javax.swing.JButton BotonAnadirMain;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
