@@ -89,6 +89,8 @@ public class PantallaPrincipalAltaCorredores extends javax.swing.JFrame {
         AltaCorredores altaC = new AltaCorredores(this,true, listaCorredores);
         altaC.setVisible(true);
         
+        
+        
         DefaultListModel dlm = new DefaultListModel();
         for(Corredor c : listaCorredores)
             dlm.addElement(c);
