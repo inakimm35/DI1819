@@ -38,8 +38,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         BotonAnadirCorredor = new javax.swing.JButton();
         BotonVerCorredores = new javax.swing.JButton();
-        BotonVerCarreras = new javax.swing.JButton();
         BotonAnadirCarrera = new javax.swing.JButton();
+        BotonVerCarreras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(650, 460));
@@ -60,19 +60,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        BotonVerCarreras.setText("VER CARRERAS");
-        BotonVerCarreras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonVerCarrerasActionPerformed(evt);
-            }
-        });
-
         BotonAnadirCarrera.setText("AÑADIR CARRERA");
         BotonAnadirCarrera.setMaximumSize(new java.awt.Dimension(140, 25));
         BotonAnadirCarrera.setMinimumSize(new java.awt.Dimension(140, 25));
         BotonAnadirCarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAnadirCarreraActionPerformed(evt);
+            }
+        });
+
+        BotonVerCarreras.setText("VER CARRERAS");
+        BotonVerCarreras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVerCarrerasActionPerformed(evt);
             }
         });
 
@@ -89,8 +89,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(BotonAnadirCorredor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonVerCarreras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonAnadirCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                    .addComponent(BotonAnadirCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(BotonVerCarreras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(129, 129, 129))
         );
         layout.setVerticalGroup(
@@ -122,19 +122,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         tablaCorredores.setVisible(true);
     }//GEN-LAST:event_BotonVerCorredoresActionPerformed
 
-    private void BotonVerCarrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerCarrerasActionPerformed
-
-        TablaCarreras tablaCarreras = new TablaCarreras(this, true, gca);
-        tablaCarreras.setVisible(true);
-        
-    }//GEN-LAST:event_BotonVerCarrerasActionPerformed
-
     private void BotonAnadirCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnadirCarreraActionPerformed
 
         AltaCarreras altaCa = new AltaCarreras(this,true, gca);
         altaCa.setVisible(true);
         
     }//GEN-LAST:event_BotonAnadirCarreraActionPerformed
+
+    private void BotonVerCarrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerCarrerasActionPerformed
+        TablaCarreras tablaCarreras = new TablaCarreras(this,true, gca);
+        tablaCarreras.setVisible(true);
+        
+        
+    }//GEN-LAST:event_BotonVerCarrerasActionPerformed
 
     
     

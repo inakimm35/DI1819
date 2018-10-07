@@ -37,8 +37,8 @@
               </Group>
               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="BotonVerCarreras" max="32767" attributes="0"/>
                   <Component id="BotonAnadirCarrera" pref="140" max="32767" attributes="0"/>
+                  <Component id="BotonVerCarreras" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
           </Group>
@@ -85,14 +85,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonVerCorredoresActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BotonVerCarreras">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="VER CARRERAS"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonVerCarrerasActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="BotonAnadirCarrera">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xd1;ADIR CARRERA"/>
@@ -105,6 +97,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonAnadirCarreraActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotonVerCarreras">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="VER CARRERAS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonVerCarrerasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

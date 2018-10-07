@@ -6,7 +6,9 @@
 package interfaz;
 
 import java.util.List;
+import logica.GestionCarrera;
 import logica.GestionCorredor;
+import modelo.TableModelCarrera;
 import modelo.TableModelCorredor;
 
 /**

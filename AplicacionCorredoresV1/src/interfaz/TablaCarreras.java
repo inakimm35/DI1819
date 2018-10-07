@@ -6,9 +6,9 @@
 package interfaz;
 
 import java.util.List;
+import javax.swing.table.TableModel;
 import logica.GestionCarrera;
 import modelo.TableModelCarrera;
-
 
 /**
  *
@@ -18,18 +18,19 @@ public class TablaCarreras extends javax.swing.JDialog {
 
     /**
      * Creates new form TablaCarreras
-     * @param parent
-     * @param modal
-     * @param gca
      */
-    public TablaCarreras(java.awt.Frame parent, boolean modal,GestionCarrera gca) {
+    public TablaCarreras(java.awt.Frame parent, boolean modal, GestionCarrera gca) {
         super(parent, modal);
-        initComponents();
         List lista = gca.getListaCarreras();
         initComponents();
-        TableModelCarrera ca = new TableModelCarrera(lista);
-        jTable1.setModel(ca);
+        TableModel t = new TableModelCarrera(lista);
+        jTable1.setModel(t);
+        
+        
+        
+        
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,10 +47,13 @@ public class TablaCarreras extends javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -65,16 +69,16 @@ public class TablaCarreras extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
