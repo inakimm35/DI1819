@@ -15,7 +15,7 @@ import modelo.Corredor;
  */
 public class GestionCorredor {
     
-    private List<Corredor> listaCorredores = new ArrayList<Corredor>();
+    private List<Corredor> listaCorredores = new ArrayList<>();
 
     public GestionCorredor() {
     }
@@ -28,7 +28,11 @@ public class GestionCorredor {
         this.listaCorredores = listaCorredores;
     }
 
-
+    public void anadirCorredor(Corredor e){
+        listaCorredores.add(e);
+    
+    }
+    
     @Override
     public String toString() {
         return "GestionCorredor{" + "listaCorredores=" + listaCorredores + '}';

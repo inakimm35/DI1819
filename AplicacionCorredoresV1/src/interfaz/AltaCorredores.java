@@ -17,15 +17,15 @@ import modelo.Corredor;
  */
 public class AltaCorredores extends javax.swing.JDialog {
    
-    private GestionCorredor gc;
+    private static GestionCorredor gc1 = new GestionCorredor();
     
     /**
      * Creates new form AltaCorredores
      */
     public AltaCorredores(java.awt.Frame parent, boolean modal,GestionCorredor gc) {
         super(parent, modal);
-        gc.getListaCorredores();
         initComponents();
+        gc.setListaCorredores(gc1.getListaCorredores());
         
     }
 
@@ -216,9 +216,9 @@ public class AltaCorredores extends javax.swing.JDialog {
         Corredor e = new Corredor (nombre, apellidos, dni, fecha, direccion, telefono);
         int resultado = JOptionPane.showConfirmDialog(this, "¿Quiere dar de alta a este corredor?","Confirmación",JOptionPane.YES_NO_OPTION);
         if (resultado == JOptionPane.YES_OPTION){
-            gc.getListaCorredores().add(e);
+           
             JOptionPane.showMessageDialog(this, "Corredor añadido Correctamente","Confirmación ",JOptionPane.INFORMATION_MESSAGE);
-            
+             gc1.anadirCorredor(e);
         }
         else if (resultado == JOptionPane.NO_OPTION)
             JOptionPane.showMessageDialog(this, "Corredor No añadido","Confirmación",JOptionPane.INFORMATION_MESSAGE);
