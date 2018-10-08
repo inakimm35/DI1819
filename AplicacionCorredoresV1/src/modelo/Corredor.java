@@ -85,6 +85,13 @@ public class Corredor {
         this.telefono = telefono;
     }
 
+    public String toStringCSV() {
+        
+        return dni + "," + nombre + "," + apellido + "," + sdf.format(fechaNacimiento) + "," + direccion + "," + telefono;
+    }
+    
+    
+    
     @Override
     public String toString() {
         
