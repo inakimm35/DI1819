@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.Frame;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -18,7 +19,6 @@ import modelo.Corredor;
 public class AltaCorredores extends javax.swing.JDialog {
    
     private static GestionCorredor gc1 = new GestionCorredor();
-    
     /**
      * Creates new form AltaCorredores
      */
@@ -29,7 +29,14 @@ public class AltaCorredores extends javax.swing.JDialog {
         
     }
 
-    
+    public AltaCorredores(java.awt.Frame parent, boolean modal,Corredor c) {
+    super(parent, modal);
+        initComponents();
+        
+        
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
