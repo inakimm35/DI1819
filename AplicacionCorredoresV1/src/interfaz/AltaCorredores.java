@@ -34,6 +34,7 @@ public class AltaCorredores extends javax.swing.JDialog {
         initComponents();
         
         
+        
     }
 
 

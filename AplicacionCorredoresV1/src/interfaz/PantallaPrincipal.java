@@ -6,8 +6,11 @@
 package interfaz;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import logica.GestionCarrera;
 import logica.GestionCorredor;
+import modelo.Corredor;
 
 /**
  *
@@ -18,6 +21,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
    GestionCorredor gc = new GestionCorredor();
    GestionCarrera gca = new GestionCarrera();
     
+  
+    
+    
+   
     /**
      * Creates new form PantallaPrincipalAltaCorredores
      * 
