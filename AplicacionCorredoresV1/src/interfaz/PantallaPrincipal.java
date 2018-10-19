@@ -8,6 +8,7 @@ package interfaz;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 import logica.GestionCarrera;
 import logica.GestionCorredor;
 import modelo.Corredor;
@@ -20,7 +21,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
    GestionCorredor gc = new GestionCorredor();
    GestionCarrera gca = new GestionCarrera();
-    
+  private static final String RUTA_LOGO = "/imgs/image1.png"; 
   
     
     
@@ -31,6 +32,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
      */
     public PantallaPrincipal() {
         initComponents();
+        
+        
+        setIconImage(new ImageIcon(getClass().getResource(RUTA_LOGO)).getImage());
+        
         
     }
 
