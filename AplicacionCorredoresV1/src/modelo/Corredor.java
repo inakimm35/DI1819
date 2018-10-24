@@ -6,7 +6,9 @@
 package modelo;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import static logica.Utils.sdf;
 
 /**
  *
@@ -20,7 +22,7 @@ public class Corredor {
     private Date fechaNacimiento;
     private String direccion;
     private int telefono;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+    private ArrayList<Resultado> HistorialResultados = new ArrayList<>();
     
     
     public Corredor() {
