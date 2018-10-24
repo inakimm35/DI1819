@@ -18,7 +18,7 @@ public class Carrera {
     private Date fecha;
     private String lugar;
     private int numeroMaxCorredores;
-    private HashMap<Integer, Corredor> listaCorredores = new HashMap<>();
+
 
     public Carrera(String nombre, Date fecha, String lugar, int numeroMaxCorredores) {
         this.nombre = nombre;
@@ -59,17 +59,11 @@ public class Carrera {
         this.numeroMaxCorredores = numeroMaxCorredores;
     }
 
-    public HashMap<Integer, Corredor> getListaCorredores() {
-        return listaCorredores;
-    }
-
-    public void setListaCorredores(HashMap<Integer, Corredor> listaCorredores) {
-        this.listaCorredores = listaCorredores;
-    }
+    
 
     @Override
     public String toString() {
-        return "Carrera{" + "nombre=" + nombre + ", fecha=" + fecha + ", lugar=" + lugar + ", numeroMaxCorredores=" + numeroMaxCorredores + ", listaCorredores=" + listaCorredores + '}';
+        return "Carrera{" + "nombre=" + nombre + ", fecha=" + fecha + ", lugar=" + lugar + ", numeroMaxCorredores=" +'}';
     }
     
     
