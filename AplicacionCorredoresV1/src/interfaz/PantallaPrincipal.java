@@ -5,10 +5,13 @@
  */
 package interfaz;
 
-
+import com.seaglasslookandfeel.SeaGlassLookAndFeel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import logica.GestionCarrera;
 import logica.GestionCorredor;
 import modelo.Corredor;
@@ -19,24 +22,29 @@ import modelo.Corredor;
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
 
-   GestionCorredor gc = new GestionCorredor();
-   GestionCarrera gca = new GestionCarrera();
-  private static final String RUTA_LOGO = "/imgs/image1.png"; 
-  
-    
-    
-   
+    GestionCorredor gc = new GestionCorredor();
+    GestionCarrera gca = new GestionCarrera();
+    private static final String RUTA_LOGO = "/imgs/image1.png";
+
     /**
      * Creates new form PantallaPrincipalAltaCorredores
-     * 
+     *
      */
     public PantallaPrincipal() {
         initComponents();
-        
-        
+        cambiarLookAndField();
         setIconImage(new ImageIcon(getClass().getResource(RUTA_LOGO)).getImage());
-        
-        
+
+    }
+
+    public void cambiarLookAndField() {
+        try {
+            UIManager.setLookAndFeel(SeaGlassLookAndFeel.class.getCanonicalName());
+            SwingUtilities.updateComponentTreeUI(this);
+        } catch (Throwable e) {
+            e.printStackTrace();
+            JOptionPane.showConfirmDialog(this, "Error al establecer el look and feel");
+        }
     }
 
     /**
@@ -125,8 +133,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void BotonAnadirCorredorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnadirCorredorActionPerformed
         AltaCorredores altaC = new AltaCorredores(this, true, gc);
         altaC.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_BotonAnadirCorredorActionPerformed
 
     private void BotonVerCorredoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerCorredoresActionPerformed
@@ -136,20 +144,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void BotonAnadirCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnadirCarreraActionPerformed
 
-        AltaCarreras altaCa = new AltaCarreras(this,true, gca);
+        AltaCarreras altaCa = new AltaCarreras(this, true, gca);
         altaCa.setVisible(true);
-        
+
     }//GEN-LAST:event_BotonAnadirCarreraActionPerformed
 
     private void BotonVerCarrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVerCarrerasActionPerformed
-        TablaCarreras tablaCarreras = new TablaCarreras(this,true, gca);
+        TablaCarreras tablaCarreras = new TablaCarreras(this, true, gca);
         tablaCarreras.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_BotonVerCarrerasActionPerformed
 
-    
-    
     /**
      * @param args the command line arguments
      */
