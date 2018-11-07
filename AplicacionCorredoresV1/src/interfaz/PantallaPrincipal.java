@@ -34,7 +34,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         initComponents();
         cambiarLookAndField();
         setIconImage(new ImageIcon(getClass().getResource(RUTA_LOGO)).getImage());
-
+ 
+        UIManager.installLookAndFeel("seaglass",SeaGlassLookAndFeel.class.getCanonicalName());
     }
 
     public void cambiarLookAndField() {
@@ -46,6 +47,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(this, "Error al establecer el look and feel");
         }
     }
+    
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
