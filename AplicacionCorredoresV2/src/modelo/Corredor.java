@@ -22,7 +22,6 @@ public class Corredor {
     private Date fechaNacimiento;
     private String direccion;
     private int telefono;
-    private ArrayList<Resultado> HistorialResultados = new ArrayList<>();
     
     
     public Corredor() {
