@@ -7,13 +7,16 @@ package interfaz;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import logica.LogicaAplicacion;
 
 /**
  *
  * @author alumnop
  */
 public class MainGestion extends javax.swing.JFrame {
-
+    
+    
+    private LogicaAplicacion la = new LogicaAplicacion();
     private static final String RUTA_LOGO = "/imgs/CORREDOR.png"; 
     private static final String RUTA_LOGO2 = "/imgs/corredores.jpg"; 
     
@@ -55,6 +58,11 @@ public class MainGestion extends javax.swing.JFrame {
         });
 
         jButton2.setText("CARRERAS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabelImg1.setText("jLabel1");
 
@@ -96,8 +104,13 @@ public class MainGestion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+     InicioCorredores ico = new InicioCorredores(this, true, la);
+        ico.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

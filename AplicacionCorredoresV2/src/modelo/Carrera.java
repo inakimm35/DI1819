@@ -19,14 +19,32 @@ public class Carrera {
     private Date fecha;
     private String lugar;
     private int numeroMaxCorredores;
-    private ArrayList<Resultado> listaCarrera = new  ArrayList<>();
+    private ArrayList<Resultado> listaCarrera;
+    private boolean isFinalizada;
 
-
-    public Carrera(String nombre, Date fecha, String lugar, int numeroMaxCorredores) {
+    public Carrera(String nombre, Date fecha, String lugar, int numeroMaxCorredores, boolean isFinalizada) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.lugar = lugar;
         this.numeroMaxCorredores = numeroMaxCorredores;
+        this.isFinalizada = isFinalizada;
+    }
+
+    
+    public ArrayList<Resultado> getListaCarrera() {
+        return listaCarrera;
+    }
+
+    public void setListaCarrera(ArrayList<Resultado> listaCarrera) {
+        this.listaCarrera = listaCarrera;
+    }
+
+    public boolean isIsFinalizada() {
+        return isFinalizada;
+    }
+
+    public void setIsFinalizada(boolean isFinalizada) {
+        this.isFinalizada = isFinalizada;
     }
 
     public String getNombre() {
@@ -61,13 +79,14 @@ public class Carrera {
         this.numeroMaxCorredores = numeroMaxCorredores;
     }
 
-    
-
     @Override
     public String toString() {
-        return "Carrera{" + "nombre=" + nombre + ", fecha=" + fecha + ", lugar=" + lugar + ", numeroMaxCorredores=" +'}';
+        return "Carrera{" + "nombre=" + nombre + ", fecha=" + fecha + ", lugar=" + lugar + ", numeroMaxCorredores=" + numeroMaxCorredores + ", listaCarrera=" + listaCarrera + ", isFinalizada=" + isFinalizada + '}';
     }
+
     
+
+   
     
     
     

@@ -45,66 +45,6 @@ public class GestionCorredor {
 
     }
 
-    public void tokenizar(String linea) throws ParseException {
-        StringTokenizer tokens = new StringTokenizer(linea, ",");
-
-        while (tokens.hasMoreTokens()) {
-            String dni = tokens.nextToken();
-            String nom = tokens.nextToken();
-            String apel = tokens.nextToken();
-            String fecha = tokens.nextToken();
-            Date date = sdf.parse(fecha);
-            String direccion = tokens.nextToken();
-            int telefono = Integer.parseInt(tokens.nextToken());
-            Corredor corredor = new Corredor(dni, nom, apel, date, direccion, telefono);
-            System.out.println(corredor.toString());
-            listaCorredores.add(corredor);
-
-        }
-    }
-
-    public void leerCSV() {
-
-        try {
-            FileReader fr = null;
-            listaCorredores.clear();
-            fr = new FileReader("corredores.csv");
-            BufferedReader registro = new BufferedReader(fr);
-            //BufferedReader registro = new BufferedReader(new FileReader("c:/ficheros/libros.csv"));
-            //leemos el primer registro
-            String cadena = registro.readLine();
-            while (cadena != null) {
-                tokenizar(cadena);
-                //leemos el siguiente registro
-                cadena = registro.readLine();
-            }
-
-        } catch (IOException ex) {
-            Logger.getLogger(GestionCorredor.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(GestionCorredor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    public void grabarFicheroCSV() throws IOException {
-
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter("corredores.csv");
-            BufferedWriter fsalida = new BufferedWriter(fw);
-            for (Corredor c : listaCorredores) {
-                fsalida.write(c.toStringCSV());
-                fsalida.write("\n");
-
-            }
-
-            fsalida.close();
-        } catch (IOException ex) {
-            Logger.getLogger(GestionCorredor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
     @Override
     public String toString() {

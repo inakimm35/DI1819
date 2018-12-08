@@ -8,6 +8,7 @@ package interfaz;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import logica.GestionCarrera;
+import logica.LogicaAplicacion;
 import modelo.Carrera;
 
 /**
@@ -16,7 +17,7 @@ import modelo.Carrera;
  */
 public class AltaCarreras extends javax.swing.JDialog {
 
-    GestionCarrera gca1 = new GestionCarrera ();
+    LogicaAplicacion la = new LogicaAplicacion();
     
     /**
      * Creates new form AltaCarreras
@@ -24,10 +25,10 @@ public class AltaCarreras extends javax.swing.JDialog {
      * @param modal
      * @param gca
      */
-    public AltaCarreras(java.awt.Frame parent, boolean modal, GestionCarrera gca) {
+    public AltaCarreras(java.awt.Frame parent, boolean modal, LogicaAplicacion la) {
         super(parent, modal);
         initComponents();
-        gca.setListaCarreras(gca1.getListaCarreras());
+        this.la=la;
        
     }
 
@@ -165,12 +166,12 @@ public class AltaCarreras extends javax.swing.JDialog {
         String lugar = jTextFieldLugar.getText();
         int numMaxCorredores = Integer.parseInt(jTextFieldNumeroMaxParticipantes.getText());
         Date fecha  =(Date) jSpinnerFecha.getValue();
-        Carrera ca = new Carrera (nombre,fecha, lugar, numMaxCorredores);
+        Carrera ca = new Carrera (nombre,fecha, lugar, numMaxCorredores,true);
         int resultado = JOptionPane.showConfirmDialog(this, "¿Quiere añadir esta carrera?","Confirmación",JOptionPane.YES_NO_OPTION);
         if (resultado == JOptionPane.YES_OPTION){
            
             JOptionPane.showMessageDialog(this, "Carrera añadida Correctamente","Confirmación ",JOptionPane.INFORMATION_MESSAGE);
-             gca1.anadirCarrera(ca);
+             la.getListaCarreras().add(ca);
         }
         else if (resultado == JOptionPane.NO_OPTION)
             JOptionPane.showMessageDialog(this, "Carrera No añadida","Confirmación",JOptionPane.INFORMATION_MESSAGE);

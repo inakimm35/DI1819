@@ -127,9 +127,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                  <Component id="jButtonValidar" max="32767" attributes="0"/>
+                  <Component id="jButtonValidar" pref="71" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                  <Component id="jButtonLimpiar" max="32767" attributes="0"/>
+                  <Component id="jButtonLimpiar" pref="72" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
               </Group>
           </Group>
