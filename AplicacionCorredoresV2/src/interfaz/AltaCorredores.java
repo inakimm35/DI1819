@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import logica.LogicaAplicacion;
 import modelo.Corredor;
+import modelo.TableModelCorredor;
 
 /**
  *
@@ -20,12 +21,13 @@ import modelo.Corredor;
 public class AltaCorredores extends javax.swing.JDialog {
    
     private LogicaAplicacion la = new LogicaAplicacion();
-  
+    private TableModelCorredor t;
     
-    public AltaCorredores(java.awt.Frame parent, boolean modal,LogicaAplicacion la) {
+    public AltaCorredores(java.awt.Frame parent, boolean modal,LogicaAplicacion la, TableModelCorredor t) {
         super(parent, modal);
         initComponents();
         this.la = la;
+       this.t=t;
         
     }
 
@@ -85,9 +87,9 @@ public class AltaCorredores extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(175, 175, 175)
-                .addComponent(jButtonValidar, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                .addComponent(jButtonValidar, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addGap(85, 85, 85)
-                .addComponent(jButtonLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                .addComponent(jButtonLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addGap(189, 189, 189))
         );
         jPanel1Layout.setVerticalGroup(
@@ -218,6 +220,8 @@ public class AltaCorredores extends javax.swing.JDialog {
            
             JOptionPane.showMessageDialog(this, "Corredor añadido Correctamente","Confirmación ",JOptionPane.INFORMATION_MESSAGE);
              la.getListaCorredores().add(e);
+            
+             
         }
         else if (resultado == JOptionPane.NO_OPTION)
             JOptionPane.showMessageDialog(this, "Corredor No añadido","Confirmación",JOptionPane.INFORMATION_MESSAGE);

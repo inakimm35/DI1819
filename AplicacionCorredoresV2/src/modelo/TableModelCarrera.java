@@ -23,6 +23,7 @@ public class TableModelCarrera extends AbstractTableModel
         this.listaCarreras = listaCarreras;
     }
     
+    
     //Devuelve el número de filas que tendrá nuestra tabla. Depende del
     //tamaño de la lista
     @Override

@@ -8,6 +8,7 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -30,7 +31,16 @@ public class Carrera {
         this.isFinalizada = isFinalizada;
     }
 
-    
+    public Carrera(String nombre, Date fecha, String lugar, int numeroMaxCorredores, ArrayList<Resultado> listaCarrera, boolean isFinalizada) {
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.lugar = lugar;
+        this.numeroMaxCorredores = numeroMaxCorredores;
+        this.listaCarrera = listaCarrera;
+        this.isFinalizada = isFinalizada;
+    }
+
+
     public ArrayList<Resultado> getListaCarrera() {
         return listaCarrera;
     }
