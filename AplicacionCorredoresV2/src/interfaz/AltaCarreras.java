@@ -24,47 +24,52 @@ import modelo.TableModelCorredor;
 public class AltaCarreras extends javax.swing.JDialog {
 
     LogicaAplicacion la = new LogicaAplicacion();
-     List listaPartipantesCorredor = new ArrayList();
-   
+    List listaParaTablePartipantes = new ArrayList();
+    ArrayList<Resultado> listaCarrera = new ArrayList<>();
+    int dorsal = 1;
+
     /**
      * Creates new form AltaCarreras
+     *
      * @param parent
      * @param modal
      * @param la
-     * @param i
      */
-    public AltaCarreras(java.awt.Frame parent, boolean modal, LogicaAplicacion la, int i) {
+    public AltaCarreras(java.awt.Frame parent, boolean modal, LogicaAplicacion la, int index) {
         super(parent, modal);
         initComponents();
-        this.la=la;
-        
-        TableModel t = new TableModelCorredor(la.getListaCorredores());
-        jTableCorredores.setModel(t);
-        
-        
-       
-        
-        if (i ==1){
-        
-        ArrayList<Resultado> al = new ArrayList();
-              al =  la.getCarreraSeleccionada().getListaCarrera();
-            for (int j = 0; j < al.size(); j++) {
-             Corredor  c = al.get(j).getC();
-            listaPartipantesCorredor.add(c);
-            
+        this.la = la;
+        TableModel tablaCorredores = new TableModelCorredor(la.getListaCorredores());
+        jTableCorredores.setModel(tablaCorredores);
+
+        if (index != -1) {
+
+            Carrera c = la.getListaCarreras().get(index);
+            jTextFieldNombre.setText(c.getNombre());
+            jTextFieldLugar.setText(c.getLugar());
+            jTextFieldNumeroMaxParticipantes.setText(String.valueOf(c.getNumeroMaxCorredores()));
+            jSpinnerFecha.setValue(c.getFecha());
+
+            ArrayList<Corredor> listaParticipantes = new ArrayList<>();
+            for (Resultado corredorCarrera : c.getListaCarrera()) {
+                Corredor corredorArray = corredorCarrera.getC();
+                listaParticipantes.add(corredorArray);
+
             }
-           
-        
-        
-         
-        TableModel t2 = new TableModelCorredor(listaPartipantesCorredor);
-        jTableCorredores.setModel(t2);
-        jTextFieldNombre.setText(la.getCarreraSeleccionada().getNombre());
-        jTextFieldLugar.setText(la.getCarreraSeleccionada().getLugar());
-        jTextFieldNumeroMaxParticipantes.setText(String.valueOf(la.getCarreraSeleccionada().getNumeroMaxCorredores()));
-        jSpinnerFecha.setValue(la.getCarreraSeleccionada().getFecha());
-       
+            
+            for (Resultado listaResultado  : la.getListaCarreras().get(index).getListaCarrera()) {
+                listaParaTablePartipantes.add(listaResultado.getC());
+                listaCarrera.add(listaResultado);
+                
+            }
+          
+            TableModel tablaParticipantes = new TableModelCorredor(listaParaTablePartipantes);
+            tablaParticipantes = new TableModelCorredor(listaParticipantes);
+            jTableParticipantes.setModel(tablaParticipantes);
+            
+            la.getListaCarreras().remove(index);
         }
+
     }
 
     /**
@@ -94,6 +99,7 @@ public class AltaCarreras extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableCorredores = new javax.swing.JTable();
+        jButtonEliminarParticipante = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -182,14 +188,24 @@ public class AltaCarreras extends javax.swing.JDialog {
         ));
         jScrollPane3.setViewportView(jTableCorredores);
 
+        jButtonEliminarParticipante.setText("Eliminar Participante");
+        jButtonEliminarParticipante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarParticipanteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jButtonValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap(42, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -207,20 +223,19 @@ public class AltaCarreras extends javax.swing.JDialog {
                                     .addComponent(jTextFieldNumeroMaxParticipantes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
                                     .addComponent(jTextFieldLugar)))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap(120, Short.MAX_VALUE)
-                        .addComponent(jButtonAnadirCorredor, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jButtonValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonAnadirCorredor, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonEliminarParticipante)
+                .addGap(109, 109, 109))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +271,9 @@ public class AltaCarreras extends javax.swing.JDialog {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonEliminarParticipante)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -272,55 +289,81 @@ public class AltaCarreras extends javax.swing.JDialog {
 
     private void jButtonValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarActionPerformed
         // TODO add your handling code here:
-        
+
         String nombre = jTextFieldNombre.getText();
         String lugar = jTextFieldLugar.getText();
         int numMaxCorredores = Integer.parseInt(jTextFieldNumeroMaxParticipantes.getText());
-        Date fecha  =(Date) jSpinnerFecha.getValue();
-        Carrera ca = new Carrera (nombre,fecha, lugar, numMaxCorredores,true);
-        int resultado = JOptionPane.showConfirmDialog(this, "¿Quiere añadir esta carrera?","Confirmación",JOptionPane.YES_NO_OPTION);
-        if (resultado == JOptionPane.YES_OPTION){
-           
-            JOptionPane.showMessageDialog(this, "Carrera añadida Correctamente","Confirmación ",JOptionPane.INFORMATION_MESSAGE);
-             la.getListaCarreras().add(ca);
+        Date fecha = (Date) jSpinnerFecha.getValue();
+        Carrera ca = new Carrera(nombre, fecha, lugar, numMaxCorredores, listaCarrera, false);
+
+        int resultado = JOptionPane.showConfirmDialog(this, "¿Quiere añadir esta carrera?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (resultado == JOptionPane.YES_OPTION) {
+
+            JOptionPane.showMessageDialog(this, "Carrera añadida Correctamente", "Confirmación ", JOptionPane.INFORMATION_MESSAGE);
+            la.getListaCarreras().add(ca);
+        } else if (resultado == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(this, "Carrera No añadida", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
         }
-        else if (resultado == JOptionPane.NO_OPTION)
-            JOptionPane.showMessageDialog(this, "Carrera No añadida","Confirmación",JOptionPane.INFORMATION_MESSAGE);
-        
-        
+
         this.dispose();
-        
-        
-        
+        System.out.println(la.getListaCarreras().toString());
+        System.out.println(la.getListaCarreras().size());
+
     }//GEN-LAST:event_jButtonValidarActionPerformed
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
 
-
-    jTextFieldNombre.setText("");
-    jTextFieldLugar.setText("");
-    jTextFieldNumeroMaxParticipantes.setText("");
+        jTextFieldNombre.setText("");
+        jTextFieldLugar.setText("");
+        jTextFieldNumeroMaxParticipantes.setText("");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     private void jButtonAnadirCorredorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirCorredorActionPerformed
-        ArrayList<Resultado> al =new ArrayList();
-                al = la.getCarreraSeleccionada().getListaCarrera();
-                
-            for (int j = 0; j < al.size(); j++) {
-             Corredor  c = al.get(j).getC();
-            listaPartipantesCorredor.add(c);
-            
-            }
-         TableModel t2 = new TableModelCorredor(listaPartipantesCorredor);
-        jTableCorredores.setModel(t2);    
+        int index = jTableCorredores.getSelectedRow();
+        
+        if(jTextFieldNumeroMaxParticipantes.getText().equalsIgnoreCase(""))
+            JOptionPane.showMessageDialog(this, "No ha seleccionado numero de participantes. Imposible añadir","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+        
+        for (Resultado resultado : listaCarrera) {
+            if(resultado.getC().equals(la.getListaCorredores().get(index)))
+             JOptionPane.showMessageDialog(this, "El corredor ya está en la lista. Imposible añadir de nuevo","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+           return;
+        }
+        
+        
+        
+        if (listaCarrera.size()>= Integer.parseInt(jTextFieldNumeroMaxParticipantes.getText())) {
+             JOptionPane.showMessageDialog(this, "Número máximo de corredores alcanzado. Imposible añadir","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+        
+        } else {
+
+            Corredor c = la.getListaCorredores().get(index);
+            Resultado r = new Resultado(c, dorsal, 0, 0);
+            dorsal++;
+            listaCarrera.add(r);
+            listaParaTablePartipantes.add(c);
+            TableModel tablaParticipantes = new TableModelCorredor(listaParaTablePartipantes);
+            jTableParticipantes.setModel(tablaParticipantes);
+        }
     }//GEN-LAST:event_jButtonAnadirCorredorActionPerformed
 
- 
+    private void jButtonEliminarParticipanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarParticipanteActionPerformed
+       if(jTableParticipantes.getSelectedRow()==-1)
+         JOptionPane.showMessageDialog(this, "No ha seleccionado ningun participante, imposible eliminar","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+        else{
+           listaCarrera.remove(jTableParticipantes.getSelectedRow());
+           listaParaTablePartipantes.remove(jTableParticipantes.getSelectedRow());
+           TableModel tablaParticipantes = new TableModelCorredor(listaParaTablePartipantes);
+           jTableParticipantes.setModel(tablaParticipantes);
+       }
+    }//GEN-LAST:event_jButtonEliminarParticipanteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnadirCorredor;
+    private javax.swing.JButton jButtonEliminarParticipante;
     private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JButton jButtonValidar;
     private javax.swing.JLabel jLabel1;

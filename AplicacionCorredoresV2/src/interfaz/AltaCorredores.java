@@ -21,14 +21,31 @@ import modelo.TableModelCorredor;
 public class AltaCorredores extends javax.swing.JDialog {
    
     private LogicaAplicacion la = new LogicaAplicacion();
-    private TableModelCorredor t;
+   
     
-    public AltaCorredores(java.awt.Frame parent, boolean modal,LogicaAplicacion la, TableModelCorredor t) {
+    public AltaCorredores(java.awt.Frame parent, boolean modal,LogicaAplicacion la) {
         super(parent, modal);
         initComponents();
         this.la = la;
-       this.t=t;
+     
+    }
+    public AltaCorredores(java.awt.Frame parent, boolean modal,LogicaAplicacion la, int index) {
+        super(parent, modal);
+        initComponents();
+        this.la = la;
         
+        Corredor c = la.getListaCorredores().get(index);
+        jTextFieldNombre.setText(c.getNombre());
+        jTextFieldApellidos.setText(c.getApellido());
+        jTextFieldDireccion.setText(c.getDireccion());
+        jTextFieldDni.setText(c.getDni());
+        jTextFieldTelefono.setText(String.valueOf(c.getTelefono()));
+        jSpinnerFechaNacimiento.setValue(c.getFechaNacimiento());
+        
+        la.getListaCorredores().remove(index);
+       
+        
+     
     }
 
 
@@ -214,7 +231,7 @@ public class AltaCorredores extends javax.swing.JDialog {
         String nombre = jTextFieldNombre.getText();
         int telefono = Integer.parseInt(jTextFieldTelefono.getText());
         Date fecha  =(Date) jSpinnerFechaNacimiento.getValue();
-        Corredor e = new Corredor (nombre, apellidos, dni, fecha, direccion, telefono);
+        Corredor e = new Corredor (dni, nombre, apellidos, fecha, direccion, telefono);
         int resultado = JOptionPane.showConfirmDialog(this, "¿Quiere dar de alta a este corredor?","Confirmación",JOptionPane.YES_NO_OPTION);
         if (resultado == JOptionPane.YES_OPTION){
            

@@ -18,25 +18,6 @@ public class LogicaAplicacion {
       private List<Carrera> listaCarreras =new ArrayList<>();
         private List<Corredor> listaCorredores =new ArrayList<>();
 
-    public Corredor getCorredorSeleccionado() {
-        return corredorSeleccionado;
-    }
-
-    public void setCorredorSeleccionado(Corredor corredorSeleccionado) {
-        this.corredorSeleccionado = corredorSeleccionado;
-    }
-
-    public Carrera getCarreraSeleccionada() {
-        return carreraSeleccionada;
-    }
-
-    public void setCarreraSeleccionada(Carrera carreraSeleccionada) {
-        this.carreraSeleccionada = carreraSeleccionada;
-    }
-        private Corredor corredorSeleccionado;
-        private Carrera carreraSeleccionada;
-        
-
     public List<Carrera> getListaCarreras() {
         return listaCarreras;
     }

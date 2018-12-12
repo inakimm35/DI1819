@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelCarrera extends AbstractTableModel 
 {
     private final List<Carrera> listaCarreras;
-    private final String[] columnas = {"Nombre","Lugar"};
+    private final String[] columnas = {"Nombre","Lugar","Finalizada"};
     
     public TableModelCarrera(List<Carrera> listaCarreras)
     {
@@ -54,6 +54,8 @@ public class TableModelCarrera extends AbstractTableModel
                 return listaCarreras.get(rowIndex).getNombre();
             case 1:
                 return listaCarreras.get(rowIndex).getLugar();
+            case 2:
+                return listaCarreras.get(rowIndex).isIsFinalizada();
         }  
         return null;
     }

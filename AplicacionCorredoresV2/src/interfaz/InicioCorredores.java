@@ -6,6 +6,7 @@
 package interfaz;
 
 import java.awt.Frame;
+import javax.swing.JOptionPane;
 import logica.LogicaAplicacion;
 import modelo.TableModelCorredor;
 
@@ -16,6 +17,7 @@ public class InicioCorredores extends javax.swing.JDialog {
      private TableModelCorredor t;
      
      
+     
    public InicioCorredores(java.awt.Frame parent, boolean modal,LogicaAplicacion la) {
         super(parent, modal);
         initComponents();
@@ -24,7 +26,7 @@ public class InicioCorredores extends javax.swing.JDialog {
         jTableCorredores.setModel(t);
      
     }
-
+  
   
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -35,7 +37,6 @@ public class InicioCorredores extends javax.swing.JDialog {
         jTableCorredores = new javax.swing.JTable();
         jButtonAnadir = new javax.swing.JButton();
         jButtonModificar = new javax.swing.JButton();
-        jButtonActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -73,13 +74,6 @@ public class InicioCorredores extends javax.swing.JDialog {
             }
         });
 
-        jButtonActualizar.setText("ACTUALIZAR TABLA");
-        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActualizarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,19 +92,13 @@ public class InicioCorredores extends javax.swing.JDialog {
                         .addGap(138, 138, 138)
                         .addComponent(jButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(162, 162, 162))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonActualizar)
-                .addGap(293, 293, 293))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jButtonActualizar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -123,23 +111,28 @@ public class InicioCorredores extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirActionPerformed
-       AltaCorredores ac = new AltaCorredores((Frame) getParent(), true, la, t);
+       AltaCorredores ac = new AltaCorredores((Frame) getParent(), true, la);
        ac.setVisible(true);
+       t = new TableModelCorredor(la.getListaCorredores());
+       jTableCorredores.setModel(t);
+        System.out.println(la.getListaCorredores().toString());
     }//GEN-LAST:event_jButtonAnadirActionPerformed
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonModificarActionPerformed
-
-    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
+      int index = jTableCorredores.getSelectedRow();
+      if(index==-1){
+       JOptionPane.showMessageDialog(this, "No ha seleccionado ningún corredor, imposible modificar","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+      }else{
+       AltaCorredores ac = new AltaCorredores((Frame) getParent(), true, la, index);
+       ac.setVisible(true);
        t = new TableModelCorredor(la.getListaCorredores());
-        jTableCorredores.setModel(t);
-    }//GEN-LAST:event_jButtonActualizarActionPerformed
+       jTableCorredores.setModel(t);
+      }
+    }//GEN-LAST:event_jButtonModificarActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonAnadir;
     private javax.swing.JButton jButtonModificar;
     private javax.swing.JLabel jLabel1;

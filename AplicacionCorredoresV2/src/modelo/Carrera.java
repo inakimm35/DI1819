@@ -57,6 +57,7 @@ public class Carrera {
         this.isFinalizada = isFinalizada;
     }
 
+
     public String getNombre() {
         return nombre;
     }
